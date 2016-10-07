@@ -16,7 +16,6 @@ class Player extends FlxSprite
 		super(X, Y, SimpleGraphic);
 		makeGraphic(16, 8);
 		FlxG.state.add(this);
-		//scrollFactor.x = 0;
 	}
 	
 	override public function update(elapsed:Float):Void 
@@ -24,11 +23,11 @@ class Player extends FlxSprite
 		super.update(elapsed);
 		if (FlxG.keys.pressed.UP)
 		{
-			velocity.y = -Reg.velocity;
+			velocity.y = -Reg.velocityPlayer;
 		}
 		else if (FlxG.keys.pressed.DOWN)
 		{
-			velocity.y = Reg.velocity;
+			velocity.y = Reg.velocityPlayer;
 		}
 		else
 		{
@@ -36,16 +35,25 @@ class Player extends FlxSprite
 		}
 		if (FlxG.keys.pressed.LEFT)
 		{
-			velocity.x = -Reg.velocity;
+			velocity.x = -Reg.velocityPlayer;
 		}
 		else if (FlxG.keys.pressed.RIGHT)
 		{
-			velocity.x = Reg.velocity;
+			velocity.x = Reg.velocityPlayer;
 		}
 		else
 		{
-			velocity.x = 0;
+			velocity.x = Reg.velocityCamera;
+		}
+		if (x < FlxG.camera.scroll.x)
+		{
+			x = FlxG.camera.scroll.x;
+		}
+		if (x + width > FlxG.camera.scroll.x + FlxG.width)
+		{
+			x = FlxG.camera.scroll.x + FlxG.width - width;
 		}
 	}
+	
 	
 }
