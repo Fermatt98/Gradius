@@ -10,12 +10,15 @@ import flixel.math.FlxMath;
 import flixel.addons.editors.ogmo.FlxOgmoLoader;
 import flixel.tile.FlxTilemap;
 import flixel.FlxObject;
+import flixel.FlxBasic;
 
 class PlayState extends FlxState
 {
 	private var scroll:FlxSprite;
 	private var dead:Bool = false;
 	private var timer:Float = 0;
+	private var yoqse:FlxSprite;
+	private var yoqse2:FlxBasic;
 	
 	override public function create():Void
 	{
@@ -63,7 +66,18 @@ class PlayState extends FlxState
 			}
 		}
 		FlxG.collide(Reg.tilemap, Reg.player);
-		
+		if (FlxG.keys.justPressed.A)
+		{
+			yoqse2 = new CajaEnemigos1(FlxG.camera.scroll.x + FlxG.width, FlxG.height / 2);
+		}
+		if (FlxG.keys.justPressed.S)
+		{
+			yoqse = new Enemigo2(FlxG.camera.scroll.x + FlxG.width, FlxG.height / 2);
+		}
+		if (FlxG.keys.justPressed.D)
+		{
+			yoqse = new Enemigo3(FlxG.camera.scroll.x + FlxG.width, FlxG.height / 2);
+		}
 	}
 	
 	private function placeEntities(entityName:String, entityData:Xml):Void
@@ -73,6 +87,10 @@ class PlayState extends FlxState
 		if (entityName == "player")
 		{
 			Reg.player = new Player(x, y);
+		}
+		if (entityName == "enemy1")
+		{
+			Reg.cajaEnemigos1 == new CajaEnemigos1 (x, y);
 		}
 	}
 	
