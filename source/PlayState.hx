@@ -78,6 +78,10 @@ class PlayState extends FlxState
 		{
 			yoqse = new Enemigo3(FlxG.camera.scroll.x + FlxG.width, FlxG.height / 2);
 		}
+		if (FlxG.keys.justPressed.Q)
+		{
+			yoqse = new Boss(FlxG.camera.scroll.x + FlxG.width - 40, FlxG.height / 2);
+		}
 	}
 	
 	private function placeEntities(entityName:String, entityData:Xml):Void

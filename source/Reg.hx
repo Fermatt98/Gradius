@@ -24,6 +24,8 @@ class Reg
 	static public var DisparosVivos:Int = 0;
 	static public var tilemap:FlxTilemap;
 	static public var disparoArray:Array<FlxSprite>;
+	static public var disparoBoss:FlxSprite;
 	static public var playerVidas:Int = 3;
 	static public var cajaEnemigos1:FlxBasic;
+	static public var cajaBoss:FlxBasic;
 }
