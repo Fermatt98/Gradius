@@ -59,6 +59,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		Font.registerFont (__ASSET__assets_data_gradius_ttf);
 		
 		
 		
@@ -85,6 +86,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -532,11 +534,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+@:keep class __ASSET__assets_data_gradius_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/data/gradius.ttf"; fontName = "GRADIUS"; }}
 
 
 #else
 
 
+class __ASSET__assets_data_gradius_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/data/gradius.ttf"; fontName = "GRADIUS";  }}
 class __ASSET__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "flixel/fonts/nokiafc22.ttf"; fontName = "Nokia Cellphone FC Small";  }}
 class __ASSET__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { super (); __fontPath = "flixel/fonts/monsterrat.ttf"; fontName = "Monsterrat";  }}
 
@@ -604,6 +608,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_gradius_ttf);
 		
 		
 		
@@ -636,6 +641,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/data/Demo.oel", AssetType.TEXT);
 		path.set ("assets/data/Demo.oep", "assets/data/Demo.oep");
 		type.set ("assets/data/Demo.oep", AssetType.TEXT);
+		path.set ("assets/data/gradius.ttf", "assets/data/gradius.ttf");
+		type.set ("assets/data/gradius.ttf", AssetType.FONT);
 		path.set ("assets/data/Level1.oel", "assets/data/Level1.oel");
 		type.set ("assets/data/Level1.oel", AssetType.TEXT);
 		path.set ("assets/images/images-go-here.txt", "assets/images/images-go-here.txt");
@@ -692,6 +699,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/data/Demo.oep";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/data/gradius.ttf";
+		path.set (id, id);
+		type.set (id, AssetType.FONT);
 		id = "assets/data/Level1.oel";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
@@ -780,6 +790,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
+		
+		className.set ("assets/data/gradius.ttf", __ASSET__assets_data_gradius_ttf);
+		type.set ("assets/data/gradius.ttf", AssetType.FONT);
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1548,6 +1561,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -1560,6 +1574,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+@:keep #if display private #end class __ASSET__assets_data_gradius_ttf extends lime.text.Font { public function new () { super (); name = "GRADIUS"; } } 
 
 
 
@@ -1585,6 +1600,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 #else
 
+@:keep #if display private #end class __ASSET__assets_data_gradius_ttf extends lime.text.Font { public function new () { __fontPath = #if ios "assets/" + #end "assets/data/gradius.ttf"; name = "GRADIUS"; super (); }}
 
 
 #if (windows || mac || linux || cpp)
@@ -1602,6 +1618,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #end
 
 #if (openfl && !flash)
+@:keep #if display private #end class __ASSET__OPENFL__assets_data_gradius_ttf extends openfl.text.Font { public function new () { __fontPath = #if ios "assets/" + #end "assets/data/gradius.ttf"; name = "GRADIUS"; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_nokiafc22_ttf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_monsterrat_ttf (); src = font.src; name = font.name; super (); }}
 

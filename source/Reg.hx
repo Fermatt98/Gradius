@@ -8,8 +8,15 @@ import flixel.tile.FlxTilemap;
  * @author ...
  */
 class Reg
-{
-	inline static public var velocityPlayer:Int = 100;
+{	
+	
+
+	
+
+	inline static public var speedUpVelocity = 25;
+	inline static public var misilVelocity:Int = 150;
+	inline static public var maxSpeedUp:Int = 5;
+	inline static public var defaultVelocityPlayer:Int = 100;
 	inline static public var velocityCamera:Int = 50;
 	inline static public var controlCaja:Float = 0.2;
 	inline static public var velocityBala:Int = 300;
@@ -17,9 +24,24 @@ class Reg
 	inline static public var velocityEnemy2:Int = 25;
 	inline static public var velocityEnemy3:Int = 25;
 	inline static public var accelerationEnemy3:Int = 10;
-	inline static public var cantEnemigos1:Int = 4;
+	inline static public var cantEnemigos1:Int = 4;	
+	inline static public var scoreEnemigo1:Int = 250;
+	inline static public var scoreEnemigo2:Int = 500;
+	inline static public var scoreEnemigo3:Int = 1000;
+	inline static public var scoreBoss:Int = 10000;
 	
-	
+	static public var velocityPlayer:Int = defaultVelocityPlayer;
+	static public var speedUpOn:Bool = false;
+	static public var misilOn:Bool = false;
+	static public var escudoOn:Bool = false;	
+	static public var optionOn:Bool = false;	
+	static public var powerUps:Int = 0;
+	static public var misilVivo:Bool = false;
+	static public var misil:Misil;
+	static public var speedUpPower:Int = 0;	
+	static public var score:Int = 0;
+	static public var highScore:Int = 100;
+	static public var escudo:Escudo;
 	static public var player:FlxSprite;
 	static public var disparo:CajaDisparo;
 	static public var DisparosVivos:Int = 0;

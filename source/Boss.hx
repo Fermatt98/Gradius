@@ -53,6 +53,7 @@ class Boss extends FlxSprite
 				Reg.VidasBoss -= 1;
 				if (Reg.VidasBoss == 0)
 				{
+					Reg.score += Reg.scoreBoss;
 					kill();
 				}
 				Reg.disparoArray[i].kill();

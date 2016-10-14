@@ -49,11 +49,17 @@ class Enemigo3 extends FlxSprite
 			{
 				if (FlxG.overlap(this, Reg.disparoArray[i]))
 				{
+					Reg.score += Reg.scoreEnemigo3;
 					kill();
 					Reg.disparoArray[i].kill();
 				}
 			}
-			if (FlxG.overlap(this, Reg.player))
+			if (FlxG.overlap(this, Reg.escudo))
+			{
+				kill();
+				Reg.escudo.qVida(1);
+			}
+			else if (FlxG.overlap(this, Reg.player))
 			{
 				Reg.player.kill();
 			}

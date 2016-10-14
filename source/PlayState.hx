@@ -18,6 +18,7 @@ class PlayState extends FlxState
 	private var timer:Float = 0;
 	private var yoqse:FlxSprite;
 	private var yoqse2:FlxBasic;
+	private var hud:Interfaz;
 	
 	override public function create():Void
 	{
@@ -26,6 +27,7 @@ class PlayState extends FlxState
 		Reg.tilemap = loader.loadTilemap(AssetPaths.tilesss__png);
 		FlxG.worldBounds.set(0, 0, Reg.tilemap.width, Reg.tilemap.height);
 		
+		hud = new Interfaz();
 		
 		Reg.tilemap.setTileProperties(0, FlxObject.NONE);
 		Reg.tilemap.setTileProperties(1, FlxObject.NONE);
@@ -50,6 +52,7 @@ class PlayState extends FlxState
 		
 		loader.loadEntities(placeEntities, "Objects");
 		Reg.disparo = new CajaDisparo();
+		add(hud);
 	}
 
 	override public function update(elapsed:Float):Void
@@ -89,6 +92,17 @@ class PlayState extends FlxState
 		if (FlxG.keys.justPressed.Q)
 		{
 			yoqse = new Boss(FlxG.camera.scroll.x + FlxG.width - 40, FlxG.height / 2);
+		}
+		if (FlxG.keys.justPressed.X)
+		{
+			Reg.escudo = new Escudo();
+		}
+		if (FlxG.keys.justPressed.Z)
+		{
+			Reg.velocityPlayer += Reg.speedUpVelocity;
+			Reg.player.velocity.x = Reg.velocityPlayer;
+			//misil
+			Reg.misilOn = true;
 		}
 	}
 	
