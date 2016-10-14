@@ -38,8 +38,12 @@ class AssetData {
 			type.set ("assets/images/Enemigo2.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/Enemigo3.png", "assets/images/Enemigo3.png");
 			type.set ("assets/images/Enemigo3.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/images/escudo.png", "assets/images/escudo.png");
+			type.set ("assets/images/escudo.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/images-go-here.txt", "assets/images/images-go-here.txt");
 			type.set ("assets/images/images-go-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/images/loop.png", "assets/images/loop.png");
+			type.set ("assets/images/loop.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/Misil.png", "assets/images/Misil.png");
 			type.set ("assets/images/Misil.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/mountain_0.png", "assets/images/mountain_0.png");
@@ -52,6 +56,8 @@ class AssetData {
 			type.set ("assets/images/mountain_3.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/Nave.png", "assets/images/Nave.png");
 			type.set ("assets/images/Nave.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/images/naveasd.png", "assets/images/naveasd.png");
+			type.set ("assets/images/naveasd.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/PowerUp.png", "assets/images/PowerUp.png");
 			type.set ("assets/images/PowerUp.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/Tiles.png", "assets/images/Tiles.png");

@@ -19,6 +19,7 @@ class Option extends FlxSprite
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(12, 12);
+		loadGraphic(AssetPaths.loop__png);
 		position = new FlxPoint();
 		lista = new List<FlxPoint>();
 		FlxG.state.add(this);

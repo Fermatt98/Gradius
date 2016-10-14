@@ -12,6 +12,7 @@ class Escudo extends FlxSprite
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(4, 10);
+		loadGraphic(AssetPaths.escudo__png);
 		vidaEscudo = cantMaxEscudo;
 		FlxG.state.add(this);
 	}
