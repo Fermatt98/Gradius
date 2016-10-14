@@ -4,6 +4,7 @@ import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.FlxG;
 import flixel.math.FlxRandom;
+import flixel.system.FlxSound;
 
 /**
  * ...
@@ -13,12 +14,16 @@ class Enemigo2 extends FlxSprite
 {
 	private var wasOnScreen:Bool = false;
 	private var random:FlxRandom;
+	private var justDead:Bool;
+	private var deadSound:FlxSound;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(12, 12);
+		justDead = true;
 		loadGraphic(AssetPaths.Enemigo2__png);
+		deadSound = FlxG.sound.load(AssetPaths.ExplosionEnemigos__wav);
 		random = new FlxRandom();
 		FlxG.state.add(this);
 	}
@@ -86,7 +91,7 @@ class Enemigo2 extends FlxSprite
 				Reg.score += Reg.scoreEnemigo2;
 				kill();
 				Reg.misil3.kill();
-				if (random.int(0, 10) == 9)
+				if (random.int(0, 5) == 4)
 				{
 					var n:FlxSprite = new PowerUp(x, y);
 				}
@@ -103,7 +108,21 @@ class Enemigo2 extends FlxSprite
 		}
 		else if (wasOnScreen)
 		{
+			justDead = false;
 			kill();
+		}
+	}
+	override public function kill():Void 
+	{
+		super.kill();
+		if (justDead)
+		{
+			justDead = false;
+			deadSound.play();
+		}
+		if (Reg.restart)
+		{
+			destroy();
 		}
 	}
 }

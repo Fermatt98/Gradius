@@ -21,6 +21,8 @@ class PlayState extends FlxState
 	private var yoqse2:FlxBasic;
 	private var hud:Interfaz;
 	private var selectionSFX:FlxSound;
+	private var deadPlayer:FlxSound;
+	private var justDead:Bool=true;
 	
 	override public function create():Void
 	{
@@ -72,6 +74,8 @@ class PlayState extends FlxState
 		FlxG.debugger.visible = true;
 		
 		selectionSFX = FlxG.sound.load(AssetPaths.PowerUpSelection__wav);
+		deadPlayer = FlxG.sound.load(AssetPaths.ExplosionJugador__wav);
+		
 	}
 
 	override public function update(elapsed:Float):Void
@@ -81,6 +85,11 @@ class PlayState extends FlxState
 		{
 			Reg.option.kill();
 			timer += elapsed;
+			if (justDead)
+			{
+				justDead = false;
+				deadPlayer.play();
+			}
 			if (timer > 2)
 			{
 				if (Reg.playerVidas > 0)
@@ -96,6 +105,7 @@ class PlayState extends FlxState
 					Reg.option2.kill();
 					Reg.escudo.kill();
 					Reg.powerUp = 0;
+					justDead = true;
 				}
 				else
 				{
@@ -175,6 +185,7 @@ class PlayState extends FlxState
 			if (!Reg.player.exists)
 			{
 				Reg.player = new Player(x, y);
+				Reg.dead = false;
 			}
 		}
 		if (entityName == "Enemigo1")

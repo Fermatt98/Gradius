@@ -67,5 +67,13 @@ class Mountain extends FlxSprite
 			kill();
 		}
 	}
+	override public function kill():Void 
+	{
+		super.kill();
+		if (Reg.restart)
+		{
+			destroy();
+		}
+	}
 	
 }

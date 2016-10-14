@@ -17,9 +17,11 @@ class Interfaz extends FlxTypedGroup<FlxSprite>
 	private var misileText:FlxText;
 	private var optionText:FlxText;
 	private var shieldText:FlxText;
+	private var lifeText:FlxText;
 	private var fontSize = 10;
 	private var scoreText:Score;
 	private var hiScoreText:HighScore;
+	private var vidaNave:FlxSprite;
 	
 	public function new()
 	{
@@ -43,7 +45,12 @@ class Interfaz extends FlxTypedGroup<FlxSprite>
 		shieldText = new FlxText(36 + 48 * 3, FlxG.height - pUpBarHeigh+1);
 		shieldText.text = "??????";
 		shieldText.setFormat("assets/data/gradius.ttf", fontSize, FlxColor.BLACK, CENTER);
-		
+		lifeText = new FlxText( 32, FlxG.height- pUpBarHeigh + 16);
+		lifeText.text = "x" + Reg.playerVidas;
+		lifeText.setFormat("assets/data/gradius.ttf", fontSize, FlxColor.WHITE, CENTER);
+		vidaNave = new FlxSprite(16, FlxG.height - pUpBarHeigh + 16);
+		vidaNave.makeGraphic(16, 16);
+		vidaNave.loadGraphic(AssetPaths.Vida__png);
 		scoreText = new Score(FlxG.width / 4+12, FlxG.height - 16);
 		hiScoreText = new HighScore(176, FlxG.height - 16);
 		
@@ -51,8 +58,10 @@ class Interfaz extends FlxTypedGroup<FlxSprite>
 		add(optionText);
 		add(shieldText);
 		add(misileText);
+		add(lifeText);
 		add(scoreText);
 		add(hiScoreText);
+		add(vidaNave);
 		forEach(function(spr:FlxSprite)
         {
 			spr.scrollFactor.set(0, 0);
@@ -84,6 +93,7 @@ class Interfaz extends FlxTypedGroup<FlxSprite>
 			
 		scoreText.updateScoreText();
 		hiScoreText.updateHiScoreText();
+		lifeText.text = "x" + Reg.playerVidas;
 		switch(Reg.powerUp)
 		{
 			case 1:
