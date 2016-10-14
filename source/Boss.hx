@@ -4,12 +4,14 @@ import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.FlxG;
 
+
 /**
  * ...
  * @author ...
  */
 class Boss extends FlxSprite
 {
+	private var _vida:FlxSprite;
 	private var _time:Float = 0;
 	private var _timeDisparo:Float = 0;
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
@@ -18,12 +20,15 @@ class Boss extends FlxSprite
 		makeGraphic(30, 30);
 		FlxG.state.add(this);
 		velocity.y = 70;
+		_vida = new VidaBoss(x,y-10);
 	}
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
 		_time += elapsed;
 		_timeDisparo += elapsed;
+		Reg.ejeX = x;
+		Reg.ejeY = y;
 		if (_time > 1 && _time < 3)
 		{
 			velocity.y = -70;
@@ -45,7 +50,11 @@ class Boss extends FlxSprite
 		{
 			if (FlxG.overlap(this, Reg.disparoArray[i]))
 			{
-				kill();
+				Reg.VidasBoss -= 1;
+				if (Reg.VidasBoss == 0)
+				{
+					kill();
+				}
 				Reg.disparoArray[i].kill();
 			}
 		}

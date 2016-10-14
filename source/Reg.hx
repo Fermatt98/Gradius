@@ -41,4 +41,7 @@ class Reg
 	static public var mountain2:FlxSprite;
 	static public var mountain3:FlxSprite;
 	static public var mountain4:FlxSprite;
+	static public var VidasBoss:Int = 30;
+	static public var ejeX:Float;
+	static public var ejeY:Float;
 }
