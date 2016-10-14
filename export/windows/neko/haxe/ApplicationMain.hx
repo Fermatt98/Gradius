@@ -511,7 +511,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "60",
+			build: "64",
 			company: "HaxeFlixel",
 			file: "Gradius",
 			fps: 60,

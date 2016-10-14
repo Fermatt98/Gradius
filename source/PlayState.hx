@@ -108,6 +108,22 @@ class PlayState extends FlxState
 		{
 			Reg.boss == new Boss (x, y);
 		}
+		if (entityName == "Mountain1")
+		{
+			Reg.mountain1 == new Mountain (x, y, 0);
+		}
+		if (entityName == "Mountain2")
+		{
+			Reg.mountain2 == new Mountain (x, y, 1);
+		}
+		if (entityName == "Mountain3")
+		{
+			Reg.mountain3 == new Mountain (x, y, 2);
+		}
+		if (entityName == "Mountain4")
+		{
+			Reg.mountain4 == new Mountain (x, y, 3);
+		}
 		
 	}
 	

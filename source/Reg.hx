@@ -37,4 +37,8 @@ class Reg
 	static public var movementBool:Bool = false;
 	static public var movementBool2:Bool = false;
 	static public var dead:Bool = false;
+	static public var mountain1:FlxSprite;
+	static public var mountain2:FlxSprite;
+	static public var mountain3:FlxSprite;
+	static public var mountain4:FlxSprite;
 }

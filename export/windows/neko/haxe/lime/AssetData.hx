@@ -26,6 +26,14 @@ class AssetData {
 			type.set ("assets/data/Level1.oel", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/images/images-go-here.txt", "assets/images/images-go-here.txt");
 			type.set ("assets/images/images-go-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/images/mountain_0.png", "assets/images/mountain_0.png");
+			type.set ("assets/images/mountain_0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/images/mountain_1.png", "assets/images/mountain_1.png");
+			type.set ("assets/images/mountain_1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/images/mountain_2.png", "assets/images/mountain_2.png");
+			type.set ("assets/images/mountain_2.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/images/mountain_3.png", "assets/images/mountain_3.png");
+			type.set ("assets/images/mountain_3.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/Tiles.png", "assets/images/Tiles.png");
 			type.set ("assets/images/Tiles.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/images/Tiles2.png", "assets/images/Tiles2.png");
