@@ -14,7 +14,6 @@ import flixel.FlxBasic;
 
 class PlayState extends FlxState
 {
-	private var scroll:FlxSprite;
 	private var dead:Bool = false;
 	private var timer:Float = 0;
 	private var yoqse:FlxSprite;
@@ -23,8 +22,8 @@ class PlayState extends FlxState
 	override public function create():Void
 	{
 		super.create();
-		var loader:FlxOgmoLoader = new FlxOgmoLoader(AssetPaths.Demo__oel);
-		Reg.tilemap = loader.loadTilemap(AssetPaths.Tiles__png);
+		var loader:FlxOgmoLoader = new FlxOgmoLoader(AssetPaths.Level1__oel);
+		Reg.tilemap = loader.loadTilemap(AssetPaths.tilesss__png);
 		FlxG.worldBounds.set(0, 0, Reg.tilemap.width, Reg.tilemap.height);
 		
 		
@@ -34,11 +33,11 @@ class PlayState extends FlxState
 		Reg.tilemap.setTileProperties(3, FlxObject.ANY, tile3Kill);
 		
 		add(Reg.tilemap);
-		scroll = new FlxSprite();
-		scroll.velocity.x = Reg.velocityCamera;
-		add(scroll);
+		Reg.scroll = new FlxSprite(FlxG.width/2, -50);
+		Reg.scroll.velocity.x = Reg.velocityCamera;
+		add(Reg.scroll);
 		FlxG.camera.setScrollBounds(0, Reg.tilemap.width, 0, Reg.tilemap.height);
-		FlxG.camera.follow(scroll);
+		FlxG.camera.follow(Reg.scroll);
 		
 		loader.loadEntities(placeEntities, "Objects");
 		Reg.disparo = new CajaDisparo();
@@ -47,6 +46,7 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
+		trace(FlxG.camera.scroll.x);
 		if (dead)
 		{
 			timer += elapsed;
@@ -92,10 +92,23 @@ class PlayState extends FlxState
 		{
 			Reg.player = new Player(x, y);
 		}
-		if (entityName == "enemy1")
+		if (entityName == "Enemigo1")
 		{
 			Reg.cajaEnemigos1 == new CajaEnemigos1 (x, y);
 		}
+		if (entityName == "Enemigo2")
+		{
+			Reg.cajaEnemigos1 == new Enemigo2 (x, y);
+		}
+		if (entityName == "Enemigo3")
+		{
+			Reg.cajaEnemigos1 == new Enemigo3 (x, y);
+		}
+		if (entityName == "Boss")
+		{
+			Reg.cajaEnemigos1 == new Boss (x, y);
+		}
+		
 	}
 	
 	private function tile3Kill(a:FlxObject, b:FlxObject):Void

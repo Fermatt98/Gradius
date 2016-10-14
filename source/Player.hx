@@ -21,6 +21,7 @@ class Player extends FlxSprite
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
+		trace(FlxG.camera.maxScrollX);
 		if (FlxG.keys.pressed.UP)
 		{
 			velocity.y = -Reg.velocityPlayer;
@@ -41,9 +42,13 @@ class Player extends FlxSprite
 		{
 			velocity.x = Reg.velocityPlayer;
 		}
+		else if(Reg.scroll.x < FlxG.camera.maxScrollX - FlxG.width/2)
+		{
+			velocity.x = Reg.scroll.velocity.x;
+		}
 		else
 		{
-			velocity.x = Reg.velocityCamera;
+			velocity.x = 0;
 		}
 		if (x < FlxG.camera.scroll.x)
 		{

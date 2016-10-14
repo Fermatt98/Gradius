@@ -16,29 +16,31 @@ class Enemigo2 extends FlxSprite
 		super(X, Y, SimpleGraphic);
 		makeGraphic(12, 12);
 		FlxG.state.add(this);
-		velocity.x = Reg.velocityEnemy2 *-1;
 	}
 	
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		if (Reg.player.y + Reg.player.height < y || Reg.player.y > y + height)
+		if (isOnScreen())
 		{
-			if (Reg.player.y + Reg.player.height < y)
+			if (Reg.player.y + Reg.player.height < y || Reg.player.y > y + height)
 			{
-				velocity.y = Reg.velocityEnemy1 *-1;
-				velocity.x = Reg.velocityEnemy2 *-1;
+				if (Reg.player.y + Reg.player.height < y)
+				{
+					velocity.y = Reg.velocityEnemy2 *-1;
+					velocity.x = Reg.velocityEnemy2 *-1;
+				}
+				else
+				{
+					velocity.y = Reg.velocityEnemy2;
+					velocity.x = Reg.velocityEnemy2 *-1;
+				}
 			}
 			else
 			{
-				velocity.y = Reg.velocityEnemy1;
-				velocity.x = Reg.velocityEnemy2 *-1;
+				velocity.y = 0;
+				velocity.x = Reg.velocityEnemy2 *-2;
 			}
-		}
-		else
-		{
-			velocity.y = 0;
-			velocity.x = Reg.velocityEnemy2 *-2;
 		}
 	}
 }

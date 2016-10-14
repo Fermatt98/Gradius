@@ -19,43 +19,47 @@ class Enemigo1 extends FlxSprite
 		super(X, Y, SimpleGraphic);
 		makeGraphic(12, 12);
 		FlxG.state.add(this);
-		velocity.x = Reg.velocityEnemy1 *-1;
+		//velocity.x = Reg.velocityEnemy1 *-1;
 	}
 	
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		if ((x + width < FlxG.camera.scroll.x + FlxG.width / 3) && right)
-		{
-			right = false;
-			if (Reg.player.y < y)
+			if ((x + width < FlxG.camera.scroll.x + FlxG.width / 3) && right)
 			{
-				up = true;
-				velocity.y = Reg.velocityEnemy1 *-1;
+				right = false;
+				if (Reg.player.y < y)
+				{
+					up = true;
+					velocity.y = Reg.velocityEnemy1 *-1;
+				}
+				else
+				{
+					down = true;
+					velocity.y = Reg.velocityEnemy1;
+				}
+				velocity.x = Reg.velocityEnemy1+Reg.velocityCamera;
 			}
-			else
+			else if (right)
 			{
-				down = true;
-				velocity.y = Reg.velocityEnemy1;
+				velocity.x = Reg.velocityEnemy1 *-1;
 			}
-			velocity.x = Reg.velocityEnemy1+Reg.velocityCamera;
-		}
-		if (up)
-		{
-			if (Reg.player.y >= y)
+			if (up)
 			{
-				up = false;
-				velocity.y = 0;
+				if (Reg.player.y >= y)
+				{
+					up = false;
+					velocity.y = 0;
+				}
 			}
-		}
-		else if (down)
-		{
-			if (Reg.player.y <= y)
+			else if (down)
 			{
-				down = false;
-				velocity.y = 0;
+				if (Reg.player.y <= y)
+				{
+					down = false;
+					velocity.y = 0;
+				}
 			}
-		}
 	}
 	
 }

@@ -18,30 +18,33 @@ class Enemigo3 extends FlxSprite
 		super(X, Y, SimpleGraphic);
 		makeGraphic(12, 12);
 		FlxG.state.add(this);
-		velocity.x = Reg.velocityEnemy3 *-1;
 	}
 	
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		if (velocity.y > maxAcceleration || velocity.y < -maxAcceleration)
+		if (isOnScreen())
 		{
+			if (velocity.y > maxAcceleration || velocity.y < -maxAcceleration)
+			{
+				if (movement)
+				{
+					movement = false;
+				}
+				else
+				{
+					movement = true;
+				}
+			}
 			if (movement)
 			{
-				movement = false;
+				velocity.y += Reg.accelerationEnemy3;
 			}
 			else
 			{
-				movement = true;
+				velocity.y -= Reg.accelerationEnemy3;
 			}
-		}
-		if (movement)
-		{
-			velocity.y += Reg.accelerationEnemy3;
-		}
-		else
-		{
-			velocity.y -= Reg.accelerationEnemy3;
+			velocity.x = Reg.velocityEnemy3 *-1;
 		}
 	}
 }

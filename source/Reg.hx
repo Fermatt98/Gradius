@@ -14,9 +14,10 @@ class Reg
 	inline static public var controlCaja:Float = 0.2;
 	inline static public var velocityBala:Int = 300;
 	inline static public var velocityEnemy1:Int = 100;
-	inline static public var velocityEnemy2:Int = 50;
-	inline static public var velocityEnemy3:Int = 50;
+	inline static public var velocityEnemy2:Int = 25;
+	inline static public var velocityEnemy3:Int = 25;
 	inline static public var accelerationEnemy3:Int = 10;
+	inline static public var cantEnemigos1:Int = 4;
 	
 	
 	static public var player:FlxSprite;
@@ -28,4 +29,5 @@ class Reg
 	static public var playerVidas:Int = 3;
 	static public var cajaEnemigos1:FlxBasic;
 	static public var cajaBoss:FlxBasic;
+	static public var scroll:FlxSprite;
 }

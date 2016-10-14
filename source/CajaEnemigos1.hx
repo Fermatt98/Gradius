@@ -23,33 +23,37 @@ class CajaEnemigos1 extends FlxBasic
 		enemyArray = new Array<FlxSprite>();
 		x = X;
 		y = Y;
+		trace(x);
 	}
 	
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		timer += elapsed;
-		if (timer > 0.4&& enemyArray.length<5)
+		if (FlxG.camera.scroll.x + FlxG.width > x)
 		{
-			enemyArray.push(new Enemigo1(x, y));
-			timer = 0;
-		}
-		if (enemyArray.length >= 5)
-		{
-			for (i in 0...enemyArray.length)
+			timer += elapsed;
+			if (timer > 0.4&& enemyArray.length<Reg.cantEnemigos1)
 			{
-				if (!enemyArray[i].exists)
+				enemyArray.push(new Enemigo1(FlxG.camera.scroll.x + FlxG.width, y));
+				timer = 0;
+			}
+			if (enemyArray.length >= Reg.cantEnemigos1)
+			{
+				for (i in 0...enemyArray.length)
 				{
-					enemyCont++;
+					if (!enemyArray[i].exists && enemyArray[i].isOnScreen())
+					{
+						enemyCont++;
+					}
 				}
-			}
-			if (enemyCont == 5)
-			{
-				trace("POWER UP");
-			}
-			else
-			{
-				enemyCont = 0;
+				if (enemyCont == Reg.cantEnemigos1)
+				{
+					trace("POWER UP");
+				}
+				else
+				{
+					enemyCont = 0;
+				}
 			}
 		}
 	}
