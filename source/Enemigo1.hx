@@ -71,6 +71,10 @@ class Enemigo1 extends FlxSprite
 				Reg.score += Reg.scoreEnemigo1;
 				kill();
 				Reg.disparoArray[i].kill();
+				if (random.int(0, 10) == 9)
+				{
+					var n:FlxSprite = new PowerUp(x, y);
+				}
 			}
 		}
 		if (FlxG.overlap(this, Reg.escudo))
@@ -81,15 +85,6 @@ class Enemigo1 extends FlxSprite
 		else if (FlxG.overlap(this, Reg.player))
 		{
 			Reg.player.kill();
-		}
-	}
-	
-	override public function kill():Void 
-	{
-		super.kill();
-		if (random.int(0, 10) == 9)
-		{
-			var n:FlxSprite = new PowerUp(x, y);
 		}
 	}
 }
