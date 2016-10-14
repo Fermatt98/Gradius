@@ -10,6 +10,7 @@ import flixel.FlxG;
  */
 class Mountain extends FlxSprite
 {
+	private var wasOnScreen:Bool = false;
 
 	public function new(?X:Float=0, ?Y:Float=0, type, ?SimpleGraphic:FlxGraphicAsset) 
 	{
@@ -31,27 +32,39 @@ class Mountain extends FlxSprite
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		if (FlxG.pixelPerfectOverlap(this, Reg.player))
+		if (isOnScreen())
 		{
-			Reg.player.kill();
+			wasOnScreen = true;
+			if (FlxG.pixelPerfectOverlap(this, Reg.player))
+			{
+				Reg.player.kill();
+			}
+			if (Reg.misilVivo)
+			{
+				if (FlxG.pixelPerfectOverlap(this, Reg.misil))
+				{
+					Reg.misil.kill();
+					Reg.misilVivo = false;
+				}
+			}	
+			if (Reg.misil2.exists)
+			{
+				if (FlxG.pixelPerfectOverlap(this, Reg.misil2))
+				{
+					Reg.misil2.kill();
+				}
+			}
+			if (Reg.misil3.exists)
+			{
+				if (FlxG.pixelPerfectOverlap(this, Reg.misil3))
+				{
+					Reg.misil3.kill();
+				}
+			}
 		}
-		if (Reg.misilVivo)
+		else if (wasOnScreen)
 		{
-			if (FlxG.pixelPerfectOverlap(this, Reg.misil))
-			{
-				Reg.misil.kill();
-				Reg.misilVivo = false;
-			}
-			if (FlxG.pixelPerfectOverlap(this, Reg.misil2))
-			{
-				Reg.misil.kill();
-				Reg.misilVivo = false;
-			}
-			if (FlxG.pixelPerfectOverlap(this, Reg.misil3))
-			{
-				Reg.misil.kill();
-				Reg.misilVivo = false;
-			}
+			kill();
 		}
 	}
 	

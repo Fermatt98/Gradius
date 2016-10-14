@@ -62,9 +62,14 @@ class PlayState extends FlxState
 		Reg.option2.kill();
 		Reg.escudo = new Escudo();
 		Reg.escudo.kill();
-		
+		Reg.misil = new Misil();
+		Reg.misil.kill();
+		Reg.misil2 = new Misil();
+		Reg.misil2.kill();
+		Reg.misil3 = new Misil();
+		Reg.misil3.kill();
 		FlxG.sound.playMusic(AssetPaths.music__wav);
-		//FlxG.debugger.visible = true;
+		FlxG.debugger.visible = true;
 		
 		selectionSFX = FlxG.sound.load(AssetPaths.PowerUpSelection__wav);
 	}
@@ -82,10 +87,11 @@ class PlayState extends FlxState
 				{
 					Reg.playerVidas--;
 					Reg.player.revive();
+					Reg.player.setPosition(FlxG.camera.scroll.x + FlxG.width/3, FlxG.height / 2);
 					timer = 0;
 					Reg.dead = false;
 					Reg.velocityPlayer = Reg.defaultVelocityPlayer;
-					Reg.misilVivo = false;
+					Reg.misilOn = false;
 					Reg.option.kill();
 					Reg.option2.kill();
 					Reg.escudo.kill();
