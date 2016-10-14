@@ -88,6 +88,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
 		Font.registerFont (__ASSET__flixel_fonts_nokiafc22_ttf);
 		Font.registerFont (__ASSET__flixel_fonts_monsterrat_ttf);
 		
@@ -96,6 +99,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -657,6 +663,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -687,8 +696,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/Enemigo2.png", AssetType.IMAGE);
 		path.set ("assets/images/Enemigo3.png", "assets/images/Enemigo3.png");
 		type.set ("assets/images/Enemigo3.png", AssetType.IMAGE);
+		path.set ("assets/images/escudo.png", "assets/images/escudo.png");
+		type.set ("assets/images/escudo.png", AssetType.IMAGE);
 		path.set ("assets/images/images-go-here.txt", "assets/images/images-go-here.txt");
 		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
+		path.set ("assets/images/loop.png", "assets/images/loop.png");
+		type.set ("assets/images/loop.png", AssetType.IMAGE);
 		path.set ("assets/images/Misil.png", "assets/images/Misil.png");
 		type.set ("assets/images/Misil.png", AssetType.IMAGE);
 		path.set ("assets/images/mountain_0.png", "assets/images/mountain_0.png");
@@ -701,6 +714,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/mountain_3.png", AssetType.IMAGE);
 		path.set ("assets/images/Nave.png", "assets/images/Nave.png");
 		type.set ("assets/images/Nave.png", AssetType.IMAGE);
+		path.set ("assets/images/naveasd.png", "assets/images/naveasd.png");
+		type.set ("assets/images/naveasd.png", AssetType.IMAGE);
 		path.set ("assets/images/PowerUp.png", "assets/images/PowerUp.png");
 		type.set ("assets/images/PowerUp.png", AssetType.IMAGE);
 		path.set ("assets/images/Tiles.png", "assets/images/Tiles.png");
@@ -773,9 +788,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/images/Enemigo3.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/escudo.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/images-go-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/images/loop.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/Misil.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
@@ -792,6 +813,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/Nave.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/naveasd.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/PowerUp.png";
@@ -873,6 +897,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/data/gradius.ttf", __ASSET__assets_data_gradius_ttf);
 		type.set ("assets/data/gradius.ttf", AssetType.FONT);
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1662,6 +1689,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -1675,6 +1705,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:keep #if display private #end class __ASSET__assets_data_gradius_ttf extends lime.text.Font { public function new () { super (); name = "GRADIUS"; } } 
+
+
+
 
 
 
