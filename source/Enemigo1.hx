@@ -1,6 +1,7 @@
 package;
 
 import flixel.FlxSprite;
+import flixel.math.FlxRandom;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.FlxG;
 
@@ -13,12 +14,15 @@ class Enemigo1 extends FlxSprite
 	private var right:Bool = true;
 	private var up:Bool = false;
 	private var down:Bool = false;
+	private var random:FlxRandom;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(12, 12);
+		loadGraphic(AssetPaths.Enemigo1__png);
 		FlxG.state.add(this);
+		random = new FlxRandom();
 		//velocity.x = Reg.velocityEnemy1 *-1;
 	}
 	
@@ -80,4 +84,12 @@ class Enemigo1 extends FlxSprite
 		}
 	}
 	
+	override public function kill():Void 
+	{
+		super.kill();
+		if (random.int(0, 10) == 9)
+		{
+			var n:FlxSprite = new PowerUp(x, y);
+		}
+	}
 }

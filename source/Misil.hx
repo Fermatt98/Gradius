@@ -11,6 +11,7 @@ class Misil extends FlxSprite
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(3, 2);
+		loadGraphic(AssetPaths.Misil__png);
 		velocity.x = Reg.misilVelocity;
 		velocity.y = Reg.misilVelocity;
 		FlxG.state.add(this);

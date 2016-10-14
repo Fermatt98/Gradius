@@ -34,8 +34,7 @@ class Reg
 	static public var speedUpOn:Bool = false;
 	static public var misilOn:Bool = false;
 	static public var escudoOn:Bool = false;	
-	static public var optionOn:Bool = false;	
-	static public var powerUps:Int = 0;
+	static public var optionOn:Bool = false;
 	static public var misilVivo:Bool = false;
 	static public var misil:Misil;
 	static public var speedUpPower:Int = 0;	
@@ -66,4 +65,5 @@ class Reg
 	static public var VidasBoss:Int = 30;
 	static public var ejeX:Float;
 	static public var ejeY:Float;
+	static public var powerUp:Int = 0;
 }

@@ -11,7 +11,6 @@ import flixel.FlxSprite;
 class CajaEnemigos1 extends FlxBasic
 {
 	private var timer:Float = 0;
-	private var enemyCont:Int = 0;
 	private var enemyArray:Array<FlxSprite>;
 	private var x:Float;
 	private var y:Float;
@@ -41,18 +40,10 @@ class CajaEnemigos1 extends FlxBasic
 			{
 				for (i in 0...enemyArray.length)
 				{
-					if (!enemyArray[i].exists && enemyArray[i].isOnScreen())
+					if (!enemyArray[i].isOnScreen())
 					{
-						enemyCont++;
+						enemyArray[i].kill();
 					}
-				}
-				if (enemyCont == Reg.cantEnemigos1)
-				{
-					trace("POWER UP");
-				}
-				else
-				{
-					enemyCont = 0;
 				}
 			}
 		}

@@ -3,6 +3,7 @@ package;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.FlxG;
+import flixel.util.FlxColor;
 
 /**
  * ...
@@ -15,6 +16,7 @@ class VidaBoss extends FlxSprite
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(30, 5);
+		color = FlxColor.RED;
 		FlxG.state.add(this);
 	}
 	override public function update(elapsed:Float):Void 

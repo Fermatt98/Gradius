@@ -18,6 +18,7 @@ class Boss extends FlxSprite
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(30, 30);
+		loadGraphic(AssetPaths.Boss__png);
 		FlxG.state.add(this);
 		velocity.y = 70;
 		_vida = new VidaBoss(x,y-10);

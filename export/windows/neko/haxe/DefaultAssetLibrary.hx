@@ -78,6 +78,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		Font.registerFont (__ASSET__flixel_fonts_nokiafc22_ttf);
 		Font.registerFont (__ASSET__flixel_fonts_monsterrat_ttf);
 		
@@ -86,6 +96,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -627,6 +647,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -645,8 +675,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/data/gradius.ttf", AssetType.FONT);
 		path.set ("assets/data/Level1.oel", "assets/data/Level1.oel");
 		type.set ("assets/data/Level1.oel", AssetType.TEXT);
+		path.set ("assets/images/Boss.png", "assets/images/Boss.png");
+		type.set ("assets/images/Boss.png", AssetType.IMAGE);
+		path.set ("assets/images/DisparoBoss.png", "assets/images/DisparoBoss.png");
+		type.set ("assets/images/DisparoBoss.png", AssetType.IMAGE);
+		path.set ("assets/images/DisparoNave.png", "assets/images/DisparoNave.png");
+		type.set ("assets/images/DisparoNave.png", AssetType.IMAGE);
+		path.set ("assets/images/Enemigo1.png", "assets/images/Enemigo1.png");
+		type.set ("assets/images/Enemigo1.png", AssetType.IMAGE);
+		path.set ("assets/images/Enemigo2.png", "assets/images/Enemigo2.png");
+		type.set ("assets/images/Enemigo2.png", AssetType.IMAGE);
+		path.set ("assets/images/Enemigo3.png", "assets/images/Enemigo3.png");
+		type.set ("assets/images/Enemigo3.png", AssetType.IMAGE);
 		path.set ("assets/images/images-go-here.txt", "assets/images/images-go-here.txt");
 		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
+		path.set ("assets/images/Misil.png", "assets/images/Misil.png");
+		type.set ("assets/images/Misil.png", AssetType.IMAGE);
 		path.set ("assets/images/mountain_0.png", "assets/images/mountain_0.png");
 		type.set ("assets/images/mountain_0.png", AssetType.IMAGE);
 		path.set ("assets/images/mountain_1.png", "assets/images/mountain_1.png");
@@ -655,12 +699,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/mountain_2.png", AssetType.IMAGE);
 		path.set ("assets/images/mountain_3.png", "assets/images/mountain_3.png");
 		type.set ("assets/images/mountain_3.png", AssetType.IMAGE);
+		path.set ("assets/images/Nave.png", "assets/images/Nave.png");
+		type.set ("assets/images/Nave.png", AssetType.IMAGE);
+		path.set ("assets/images/PowerUp.png", "assets/images/PowerUp.png");
+		type.set ("assets/images/PowerUp.png", AssetType.IMAGE);
 		path.set ("assets/images/Tiles.png", "assets/images/Tiles.png");
 		type.set ("assets/images/Tiles.png", AssetType.IMAGE);
 		path.set ("assets/images/Tiles2.png", "assets/images/Tiles2.png");
 		type.set ("assets/images/Tiles2.png", AssetType.IMAGE);
 		path.set ("assets/images/tilesss.png", "assets/images/tilesss.png");
 		type.set ("assets/images/tilesss.png", AssetType.IMAGE);
+		path.set ("assets/images/Vida.png", "assets/images/Vida.png");
+		type.set ("assets/images/Vida.png", AssetType.IMAGE);
 		path.set ("assets/music/music-goes-here.txt", "assets/music/music-goes-here.txt");
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
 		path.set ("assets/sounds/ExplosionEnemigos.wav", "assets/sounds/ExplosionEnemigos.wav");
@@ -705,9 +755,30 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/data/Level1.oel";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/images/Boss.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/DisparoBoss.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/DisparoNave.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/Enemigo1.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/Enemigo2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/Enemigo3.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/images-go-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/images/Misil.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/mountain_0.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
@@ -720,6 +791,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/images/mountain_3.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/Nave.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/PowerUp.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/Tiles.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
@@ -727,6 +804,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/tilesss.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/Vida.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/music/music-goes-here.txt";
@@ -793,6 +873,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/data/gradius.ttf", __ASSET__assets_data_gradius_ttf);
 		type.set ("assets/data/gradius.ttf", AssetType.FONT);
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1562,6 +1652,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
+
+
+
+
+
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -1575,6 +1675,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:keep #if display private #end class __ASSET__assets_data_gradius_ttf extends lime.text.Font { public function new () { super (); name = "GRADIUS"; } } 
+
+
+
+
+
+
+
+
+
+
 
 
 

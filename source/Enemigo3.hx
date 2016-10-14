@@ -12,11 +12,13 @@ class Enemigo3 extends FlxSprite
 {
 	private var movement:Bool = false;
 	private var maxAcceleration:Int = 200;
+	private var wasOnScreen:Bool = false;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(12, 12);
+		loadGraphic(AssetPaths.Enemigo3__png);
 		FlxG.state.add(this);
 	}
 	
@@ -25,6 +27,7 @@ class Enemigo3 extends FlxSprite
 		super.update(elapsed);
 		if (isOnScreen())
 		{
+			wasOnScreen = true;
 			if (velocity.y > maxAcceleration || velocity.y < -maxAcceleration)
 			{
 				if (movement)
@@ -63,6 +66,10 @@ class Enemigo3 extends FlxSprite
 			{
 				Reg.player.kill();
 			}
+		}
+		else if (wasOnScreen)
+		{
+			kill();
 		}
 	}
 }

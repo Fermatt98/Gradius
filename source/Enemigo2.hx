@@ -10,11 +10,13 @@ import flixel.FlxG;
  */
 class Enemigo2 extends FlxSprite
 {
+	private var wasOnScreen:Bool = false;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(12, 12);
+		loadGraphic(AssetPaths.Enemigo2__png);
 		FlxG.state.add(this);
 	}
 	
@@ -23,6 +25,7 @@ class Enemigo2 extends FlxSprite
 		super.update(elapsed);
 		if (isOnScreen())
 		{
+			wasOnScreen = true;
 			if (Reg.player.y + Reg.player.height < y || Reg.player.y > y + height)
 			{
 				if (Reg.player.y + Reg.player.height < y)
@@ -59,6 +62,10 @@ class Enemigo2 extends FlxSprite
 			{
 				Reg.player.kill();
 			}
+		}
+		else if (wasOnScreen)
+		{
+			kill();
 		}
 	}
 }

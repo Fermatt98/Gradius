@@ -53,6 +53,7 @@ class PlayState extends FlxState
 		loader.loadEntities(placeEntities, "Objects");
 		Reg.disparo = new CajaDisparo();
 		add(hud);
+		FlxG.debugger.visible = true;
 	}
 
 	override public function update(elapsed:Float):Void

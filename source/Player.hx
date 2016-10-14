@@ -15,6 +15,7 @@ class Player extends FlxSprite
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(16, 8);
+		loadGraphic(AssetPaths.Nave__png);
 		FlxG.state.add(this);
 	}
 	

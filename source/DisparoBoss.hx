@@ -14,6 +14,7 @@ class DisparoBoss extends FlxSprite
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(10, 20);
+		loadGraphic(AssetPaths.DisparoBoss__png);
 		FlxG.state.add(this);
 		velocity.x = -170;
 	}
