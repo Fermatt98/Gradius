@@ -42,6 +42,16 @@ class Mountain extends FlxSprite
 				Reg.misil.kill();
 				Reg.misilVivo = false;
 			}
+			if (FlxG.pixelPerfectOverlap(this, Reg.misil2))
+			{
+				Reg.misil.kill();
+				Reg.misilVivo = false;
+			}
+			if (FlxG.pixelPerfectOverlap(this, Reg.misil3))
+			{
+				Reg.misil.kill();
+				Reg.misilVivo = false;
+			}
 		}
 	}
 	

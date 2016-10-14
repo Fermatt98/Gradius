@@ -51,7 +51,8 @@ class PlayState extends FlxState
 		add(Reg.scroll);
 		FlxG.camera.setScrollBounds(0, Reg.tilemap.width, 0, Reg.tilemap.height);
 		FlxG.camera.follow(Reg.scroll);
-		
+		Reg.player = new Player();
+		Reg.player.kill();
 		loader.loadEntities(placeEntities, "Objects");
 		Reg.disparo = new CajaDisparo();
 		add(hud);
@@ -61,6 +62,7 @@ class PlayState extends FlxState
 		Reg.option2.kill();
 		Reg.escudo = new Escudo();
 		Reg.escudo.kill();
+		
 		FlxG.sound.playMusic(AssetPaths.music__wav);
 		//FlxG.debugger.visible = true;
 		
@@ -126,6 +128,36 @@ class PlayState extends FlxState
 					selectionSFX.play();
 			}
 		}
+		if (Reg.restart)
+		{
+			var loader:FlxOgmoLoader = new FlxOgmoLoader(AssetPaths.Level1__oel);
+			Reg.tilemap = loader.loadTilemap(AssetPaths.tilesss__png);
+			FlxG.worldBounds.set(0, 0, Reg.tilemap.width, Reg.tilemap.height);
+			
+			Reg.tilemap.setTileProperties(0, FlxObject.NONE);
+			Reg.tilemap.setTileProperties(1, FlxObject.NONE);
+			Reg.tilemap.setTileProperties(2, FlxObject.ANY);
+			Reg.tilemap.setTileProperties(3, FlxObject.ANY);
+			Reg.tilemap.setTileProperties(4, FlxObject.ANY);
+			Reg.tilemap.setTileProperties(5, FlxObject.ANY);
+			Reg.tilemap.setTileProperties(6, FlxObject.ANY, tile3Kill);
+			Reg.tilemap.setTileProperties(7, FlxObject.ANY);
+			Reg.tilemap.setTileProperties(8, FlxObject.ANY);
+			Reg.tilemap.setTileProperties(9, FlxObject.ANY);
+			Reg.tilemap.setTileProperties(10, FlxObject.ANY, tile3Kill);
+			Reg.tilemap.setTileProperties(11, FlxObject.NONE);
+			
+			
+			add(Reg.tilemap);
+			Reg.scroll = new FlxSprite(FlxG.width/2, -50);
+			Reg.scroll.velocity.x = Reg.velocityCamera;
+			add(Reg.scroll);
+			FlxG.camera.setScrollBounds(0, Reg.tilemap.width, 0, Reg.tilemap.height);
+			FlxG.camera.follow(Reg.scroll);
+			
+			loader.loadEntities(placeEntities, "Objects");
+			Reg.restart = false;
+		}
 	}
 	
 	private function placeEntities(entityName:String, entityData:Xml):Void
@@ -134,8 +166,10 @@ class PlayState extends FlxState
 		var y:Int = Std.parseInt(entityData.get("y"));
 		if (entityName == "player")
 		{
-			Reg.player = new Player(x, y);
-			
+			if (!Reg.player.exists)
+			{
+				Reg.player = new Player(x, y);
+			}
 		}
 		if (entityName == "Enemigo1")
 		{

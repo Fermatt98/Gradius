@@ -92,5 +92,9 @@ class Boss extends FlxSprite
 			Reg.player.kill();
 		}
 	}
-	
+	override public function kill():Void 
+	{
+		super.kill();
+		Reg.restart = true;
+	}
 }

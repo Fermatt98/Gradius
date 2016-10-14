@@ -71,4 +71,5 @@ class Reg
 	static public var ejeX:Float;
 	static public var ejeY:Float;
 	static public var powerUp:Int = 0;
+	static public var restart:Bool = false;
 }
