@@ -2,6 +2,8 @@ package;
 
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
+import flixel.math.FlxPoint;
+import flixel.FlxG;
 
 /**
  * ...
@@ -16,6 +18,7 @@ class Option2 extends FlxSprite
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(12, 12);
+		loadGraphic(AssetPaths.loop__png);
 		position = new FlxPoint();
 		lista = new List<FlxPoint>();
 		FlxG.state.add(this);

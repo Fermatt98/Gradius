@@ -3,6 +3,7 @@ package;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.FlxG;
+import flixel.math.FlxRandom;
 
 /**
  * ...
@@ -13,12 +14,14 @@ class Enemigo3 extends FlxSprite
 	private var movement:Bool = false;
 	private var maxAcceleration:Int = 200;
 	private var wasOnScreen:Bool = false;
+	private var random:FlxRandom;
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(12, 12);
 		loadGraphic(AssetPaths.Enemigo3__png);
+		random = new FlxRandom();
 		FlxG.state.add(this);
 	}
 	
@@ -55,6 +58,41 @@ class Enemigo3 extends FlxSprite
 					Reg.score += Reg.scoreEnemigo3;
 					kill();
 					Reg.disparoArray[i].kill();
+					if (random.int(0, 10) == 9)
+					{
+						var n:FlxSprite = new PowerUp(x, y);
+					}
+				}
+			}
+			if (FlxG.overlap(this, Reg.misil))
+			{
+				Reg.score += Reg.scoreEnemigo3;
+				kill();
+				Reg.misil.kill();
+				Reg.misilVivo = false;
+				if (random.int(0, 10) == 9)
+				{
+					var n:FlxSprite = new PowerUp(x, y);
+				}
+			}
+			if (FlxG.overlap(this, Reg.misil2))
+			{
+				Reg.score += Reg.scoreEnemigo3;
+				kill();
+				Reg.misil2.kill();
+				if (random.int(0, 10) == 9)
+				{
+					var n:FlxSprite = new PowerUp(x, y);
+				}
+			}
+			if (FlxG.overlap(this, Reg.misil3))
+			{
+				Reg.score += Reg.scoreEnemigo3;
+				kill();
+				Reg.misil3.kill();
+				if (random.int(0, 10) == 9)
+				{
+					var n:FlxSprite = new PowerUp(x, y);
 				}
 			}
 			if (FlxG.overlap(this, Reg.escudo))

@@ -30,17 +30,13 @@ class Boss extends FlxSprite
 		_timeDisparo += elapsed;
 		Reg.ejeX = x;
 		Reg.ejeY = y;
-		if (_time > 1 && _time < 3)
-		{
-			velocity.y = -70;
-		}
-		if (_time >= 3)
+		if (y < 0)
 		{
 			velocity.y = 70;
 		}
-		if (_time > 4)
+		else if (y + height > FlxG.height - 32)
 		{
-			_time = 0;
+			velocity.y = -70;
 		}
 		if (_timeDisparo > 2)
 		{
@@ -59,6 +55,37 @@ class Boss extends FlxSprite
 				}
 				Reg.disparoArray[i].kill();
 			}
+		}
+		if (FlxG.overlap(this, Reg.misil))
+		{
+			Reg.VidasBoss -= 1;
+			if (Reg.VidasBoss == 0)
+			{
+				Reg.score += Reg.scoreBoss;
+				kill();
+			}
+			Reg.misil.kill();
+			Reg.misilVivo = false;
+		}
+		if (FlxG.overlap(this, Reg.misil2))
+		{
+			Reg.VidasBoss -= 1;
+			if (Reg.VidasBoss == 0)
+			{
+				Reg.score += Reg.scoreBoss;
+				kill();
+			}
+			Reg.misil2.kill();
+		}
+		if (FlxG.overlap(this, Reg.misil3))
+		{
+			Reg.VidasBoss -= 1;
+			if (Reg.VidasBoss == 0)
+			{
+				Reg.score += Reg.scoreBoss;
+				kill();
+			}
+			Reg.misil3.kill();
 		}
 		if (FlxG.overlap(this, Reg.player))
 		{

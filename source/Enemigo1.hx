@@ -77,6 +77,37 @@ class Enemigo1 extends FlxSprite
 				}
 			}
 		}
+		if (FlxG.overlap(this, Reg.misil))
+		{
+			Reg.score += Reg.scoreEnemigo1;
+			kill();
+			Reg.misil.kill();
+			Reg.misilVivo = false;
+			if (random.int(0, 10) == 9)
+			{
+				var n:FlxSprite = new PowerUp(x, y);
+			}
+		}
+		if (FlxG.overlap(this, Reg.misil2))
+		{
+			Reg.score += Reg.scoreEnemigo1;
+			kill();
+			Reg.misil2.kill();
+			if (random.int(0, 10) == 9)
+			{
+				var n:FlxSprite = new PowerUp(x, y);
+			}
+		}
+		if (FlxG.overlap(this, Reg.misil3))
+		{
+			Reg.score += Reg.scoreEnemigo1;
+			kill();
+			Reg.misil3.kill();
+			if (random.int(0, 10) == 9)
+			{
+				var n:FlxSprite = new PowerUp(x, y);
+			}
+		}
 		if (FlxG.overlap(this, Reg.escudo))
 		{
 			kill();

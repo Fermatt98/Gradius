@@ -61,6 +61,10 @@ class Interfaz extends FlxTypedGroup<FlxSprite>
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
+		speedUpText.color = FlxColor.BLACK;
+		misileText.color = FlxColor.BLACK;
+		optionText.color = FlxColor.BLACK;
+		shieldText.color = FlxColor.BLACK;
 		if (Reg.speedUpPower == Reg.maxSpeedUp)	
 			speedUpText.text = " ";
 		else
@@ -80,6 +84,45 @@ class Interfaz extends FlxTypedGroup<FlxSprite>
 			
 		scoreText.updateScoreText();
 		hiScoreText.updateHiScoreText();
+		switch(Reg.powerUp)
+		{
+			case 1:
+				if (Reg.speedUpPower != Reg.maxSpeedUp)
+				{
+					speedUpText.color = FlxColor.YELLOW;
+				}
+				else
+				{
+					Reg.powerUp++;
+				}
+			case 2:
+				if (Reg.misilOn != true)
+				{
+					misileText.color = FlxColor.YELLOW;
+				}
+				else
+				{
+					Reg.powerUp++;
+				}
+			case 3:
+				if (Reg.optionOn != true)
+				{
+					optionText.color = FlxColor.YELLOW;
+				}
+				else
+				{
+					Reg.powerUp++;
+				}
+			case 4:
+				if (Reg.escudoOn != true)
+				{
+					shieldText.color = FlxColor.YELLOW;
+				}
+				else
+				{
+					Reg.powerUp++;
+				}
+		}
 	}
 	private function createBox(x:Float, y:Float)
 	{

@@ -12,6 +12,7 @@ import flixel.addons.editors.ogmo.FlxOgmoLoader;
 import flixel.tile.FlxTilemap;
 import flixel.FlxObject;
 import flixel.FlxBasic;
+import flixel.system.FlxSound;
 
 class PlayState extends FlxState
 {
@@ -19,6 +20,7 @@ class PlayState extends FlxState
 	private var yoqse:FlxSprite;
 	private var yoqse2:FlxBasic;
 	private var hud:Interfaz;
+	private var selectionSFX:FlxSound;
 	
 	override public function create():Void
 	{
@@ -53,7 +55,16 @@ class PlayState extends FlxState
 		loader.loadEntities(placeEntities, "Objects");
 		Reg.disparo = new CajaDisparo();
 		add(hud);
-		FlxG.debugger.visible = true;
+		Reg.option = new Option();
+		Reg.option.kill();
+		Reg.option2 = new Option2();
+		Reg.option2.kill();
+		Reg.escudo = new Escudo();
+		Reg.escudo.kill();
+		FlxG.sound.playMusic(AssetPaths.music__wav);
+		//FlxG.debugger.visible = true;
+		
+		selectionSFX = FlxG.sound.load(AssetPaths.PowerUpSelection__wav);
 	}
 
 	override public function update(elapsed:Float):Void
@@ -61,6 +72,7 @@ class PlayState extends FlxState
 		super.update(elapsed);
 		if (Reg.dead)
 		{
+			Reg.option.kill();
 			timer += elapsed;
 			if (timer > 2)
 			{
@@ -70,6 +82,12 @@ class PlayState extends FlxState
 					Reg.player.revive();
 					timer = 0;
 					Reg.dead = false;
+					Reg.velocityPlayer = Reg.defaultVelocityPlayer;
+					Reg.misilVivo = false;
+					Reg.option.kill();
+					Reg.option2.kill();
+					Reg.escudo.kill();
+					Reg.powerUp = 0;
 				}
 				else
 				{
@@ -78,32 +96,35 @@ class PlayState extends FlxState
 			}
 		}
 		FlxG.collide(Reg.tilemap, Reg.player);
-		if (FlxG.keys.justPressed.A)
-		{
-			yoqse2 = new CajaEnemigos1(FlxG.camera.scroll.x + FlxG.width, FlxG.height / 2);
-		}
-		if (FlxG.keys.justPressed.S)
-		{
-			yoqse = new Enemigo2(FlxG.camera.scroll.x + FlxG.width, FlxG.height / 2);
-		}
-		if (FlxG.keys.justPressed.D)
-		{
-			yoqse = new Enemigo3(FlxG.camera.scroll.x + FlxG.width, FlxG.height / 2);
-		}
-		if (FlxG.keys.justPressed.Q)
-		{
-			yoqse = new Boss(FlxG.camera.scroll.x + FlxG.width - 40, FlxG.height / 2);
-		}
-		if (FlxG.keys.justPressed.X)
-		{
-			Reg.escudo = new Escudo();
-		}
 		if (FlxG.keys.justPressed.Z)
 		{
-			Reg.velocityPlayer += Reg.speedUpVelocity;
-			Reg.player.velocity.x = Reg.velocityPlayer;
-			//misil
-			Reg.misilOn = true;
+			switch(Reg.powerUp)
+			{
+				case 1:
+					Reg.velocityPlayer += Reg.speedUpVelocity;
+					Reg.player.velocity.x = Reg.velocityPlayer;
+					Reg.powerUp = 0;
+					selectionSFX.play();
+				case 2:
+					Reg.misilOn = true;
+					Reg.powerUp = 0;
+					selectionSFX.play();
+				case 3:
+					if (Reg.option.exists)
+					{
+						Reg.option2 = new Option2(Reg.option.x, Reg.option.y);
+					}
+					else
+					{
+						Reg.option = new Option(Reg.player.x, Reg.player.y);
+					}
+					Reg.powerUp = 0;
+					selectionSFX.play();
+				case 4:
+					Reg.escudo = new Escudo();
+					Reg.powerUp = 0;
+					selectionSFX.play();
+			}
 		}
 	}
 	
@@ -114,7 +135,7 @@ class PlayState extends FlxState
 		if (entityName == "player")
 		{
 			Reg.player = new Player(x, y);
-			Reg.option = new Option(x, y);
+			
 		}
 		if (entityName == "Enemigo1")
 		{
@@ -156,6 +177,11 @@ class PlayState extends FlxState
 		if (b == Reg.player)
 		{
 			Reg.player.kill();
+		}
+		else if (b == Reg.misil)
+		{
+			Reg.misil.kill();
+			Reg.misilVivo = false;
 		}
 		else for (i in 0...Reg.disparoArray.length) 
 		{

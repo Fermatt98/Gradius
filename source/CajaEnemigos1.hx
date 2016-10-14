@@ -3,6 +3,7 @@ package;
 import flixel.FlxBasic;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.system.FlxSound;
 
 /**
  * ...
@@ -22,7 +23,6 @@ class CajaEnemigos1 extends FlxBasic
 		enemyArray = new Array<FlxSprite>();
 		x = X;
 		y = Y;
-		trace(x);
 	}
 	
 	override public function update(elapsed:Float):Void 

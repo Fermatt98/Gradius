@@ -24,7 +24,7 @@ class Misil extends FlxSprite
 			kill();
 			Reg.misilVivo = false;
 		}
-		if (y + height > FlxG.camera.scroll.y + FlxG.width)
+		if (y + height > FlxG.camera.scroll.y + FlxG.height)
 		{
 			kill();
 			Reg.misilVivo = false;

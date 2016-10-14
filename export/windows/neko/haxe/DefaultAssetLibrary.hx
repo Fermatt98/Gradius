@@ -91,6 +91,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
 		Font.registerFont (__ASSET__flixel_fonts_nokiafc22_ttf);
 		Font.registerFont (__ASSET__flixel_fonts_monsterrat_ttf);
 		
@@ -99,6 +100,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -666,6 +668,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -728,6 +731,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/Vida.png", AssetType.IMAGE);
 		path.set ("assets/music/music-goes-here.txt", "assets/music/music-goes-here.txt");
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
+		path.set ("assets/music/music.wav", "assets/music/music.wav");
+		type.set ("assets/music/music.wav", AssetType.SOUND);
 		path.set ("assets/sounds/ExplosionEnemigos.wav", "assets/sounds/ExplosionEnemigos.wav");
 		type.set ("assets/sounds/ExplosionEnemigos.wav", AssetType.SOUND);
 		path.set ("assets/sounds/ExplosionJugador.wav", "assets/sounds/ExplosionJugador.wav");
@@ -836,6 +841,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/music/music-goes-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/music/music.wav";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
 		id = "assets/sounds/ExplosionEnemigos.wav";
 		path.set (id, id);
 		type.set (id, AssetType.SOUND);
@@ -897,6 +905,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/data/gradius.ttf", __ASSET__assets_data_gradius_ttf);
 		type.set ("assets/data/gradius.ttf", AssetType.FONT);
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1692,6 +1701,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -1705,6 +1715,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:keep #if display private #end class __ASSET__assets_data_gradius_ttf extends lime.text.Font { public function new () { super (); name = "GRADIUS"; } } 
+
 
 
 

@@ -1,7 +1,9 @@
 package;
 import flixel.FlxBasic;
 import flixel.FlxSprite;
+import flixel.system.FlxSound;
 import flixel.tile.FlxTilemap;
+import flixel.FlxG;
 
 /**
  * ...
@@ -37,9 +39,11 @@ class Reg
 	static public var optionOn:Bool = false;
 	static public var misilVivo:Bool = false;
 	static public var misil:Misil;
+	static public var misil2:Misil;
+	static public var misil3:Misil;
 	static public var speedUpPower:Int = 0;	
 	static public var score:Int = 0;
-	static public var highScore:Int = 100;
+	static public var highScore:Int = 10000;
 	static public var escudo:Escudo;
 	static public var player:FlxSprite;
 	static public var disparo:CajaDisparo;
@@ -55,6 +59,7 @@ class Reg
 	static public var cajaBoss:FlxBasic;
 	static public var scroll:FlxSprite;
 	static public var option:FlxSprite;
+	static public var option2:FlxSprite;
 	static public var movementBool:Bool = false;
 	static public var movementBool2:Bool = false;
 	static public var dead:Bool = false;

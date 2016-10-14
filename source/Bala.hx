@@ -10,13 +10,15 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
  */
 class Bala extends FlxSprite
 {
-
-	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
+	private var player:Bool;
+	
+	public function new(?X:Float = 0, ?Y:Float = 0, ?_player:Bool = false, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(3, 2);
 		loadGraphic(AssetPaths.DisparoNave__png);
 		velocity.x = Reg.velocityBala;
+		player = _player;
 		FlxG.state.add(this);
 	}
 	override public function update(elapsed:Float):Void 
@@ -31,6 +33,9 @@ class Bala extends FlxSprite
 	override public function kill():Void 
 	{
 		super.kill();
-		Reg.DisparosVivos -= 1;
+		if (player)
+		{
+			Reg.DisparosVivos -= 1;
+		}
 	}
 }
