@@ -41,6 +41,18 @@ class Boss extends FlxSprite
 			Reg.disparoBoss = new DisparoBoss(x,y);
 			_timeDisparo = 0;
 		}
+		for (i in 0...Reg.disparoArray.length)
+		{
+			if (FlxG.overlap(this, Reg.disparoArray[i]))
+			{
+				kill();
+				Reg.disparoArray[i].kill();
+			}
+		}
+		if (FlxG.overlap(this, Reg.player))
+		{
+			Reg.player.kill();
+		}
 	}
 	
 }

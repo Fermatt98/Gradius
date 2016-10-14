@@ -24,6 +24,10 @@ class DisparoBoss extends FlxSprite
 		{
 			kill();
 		}
+		if (FlxG.overlap(this, Reg.player))
+		{
+			Reg.player.kill();
+		}
 	}
 	
 }

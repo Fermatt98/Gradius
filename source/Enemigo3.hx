@@ -45,6 +45,18 @@ class Enemigo3 extends FlxSprite
 				velocity.y -= Reg.accelerationEnemy3;
 			}
 			velocity.x = Reg.velocityEnemy3 *-1;
+			for (i in 0...Reg.disparoArray.length)
+			{
+				if (FlxG.overlap(this, Reg.disparoArray[i]))
+				{
+					kill();
+					Reg.disparoArray[i].kill();
+				}
+			}
+			if (FlxG.overlap(this, Reg.player))
+			{
+				Reg.player.kill();
+			}
 		}
 	}
 }

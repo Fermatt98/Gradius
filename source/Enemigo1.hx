@@ -25,41 +25,53 @@ class Enemigo1 extends FlxSprite
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-			if ((x + width < FlxG.camera.scroll.x + FlxG.width / 3) && right)
+		if ((x + width < FlxG.camera.scroll.x + FlxG.width / 3) && right)
+		{
+			right = false;
+			if (Reg.player.y < y)
 			{
-				right = false;
-				if (Reg.player.y < y)
-				{
-					up = true;
-					velocity.y = Reg.velocityEnemy1 *-1;
-				}
-				else
-				{
-					down = true;
-					velocity.y = Reg.velocityEnemy1;
-				}
-				velocity.x = Reg.velocityEnemy1+Reg.velocityCamera;
+				up = true;
+				velocity.y = Reg.velocityEnemy1 *-1;
 			}
-			else if (right)
+			else
 			{
-				velocity.x = Reg.velocityEnemy1 *-1;
+				down = true;
+				velocity.y = Reg.velocityEnemy1;
 			}
-			if (up)
+			velocity.x = Reg.velocityEnemy1+Reg.velocityCamera;
+		}
+		else if (right)
+		{
+			velocity.x = Reg.velocityEnemy1 *-1;
+		}
+		if (up)
+		{
+			if (Reg.player.y >= y)
 			{
-				if (Reg.player.y >= y)
-				{
-					up = false;
-					velocity.y = 0;
-				}
+				up = false;
+				velocity.y = 0;
 			}
-			else if (down)
+		}
+		else if (down)
+		{
+			if (Reg.player.y <= y)
 			{
-				if (Reg.player.y <= y)
-				{
-					down = false;
-					velocity.y = 0;
-				}
+				down = false;
+				velocity.y = 0;
 			}
+		}
+		for (i in 0...Reg.disparoArray.length)
+		{
+			if (FlxG.overlap(this, Reg.disparoArray[i]))
+			{
+				kill();
+				Reg.disparoArray[i].kill();
+			}
+		}
+		if (FlxG.overlap(this, Reg.player))
+		{
+			Reg.player.kill();
+		}
 	}
 	
 }

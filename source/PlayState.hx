@@ -4,6 +4,7 @@ import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.math.FlxPoint;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
@@ -14,7 +15,6 @@ import flixel.FlxBasic;
 
 class PlayState extends FlxState
 {
-	private var dead:Bool = false;
 	private var timer:Float = 0;
 	private var yoqse:FlxSprite;
 	private var yoqse2:FlxBasic;
@@ -46,8 +46,7 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
-		trace(FlxG.camera.scroll.x);
-		if (dead)
+		if (Reg.dead)
 		{
 			timer += elapsed;
 			if (timer > 2)
@@ -57,7 +56,7 @@ class PlayState extends FlxState
 					Reg.playerVidas--;
 					Reg.player.revive();
 					timer = 0;
-					dead = false;
+					Reg.dead = false;
 				}
 				else
 				{
@@ -91,6 +90,7 @@ class PlayState extends FlxState
 		if (entityName == "player")
 		{
 			Reg.player = new Player(x, y);
+			Reg.option = new Option(x, y);
 		}
 		if (entityName == "Enemigo1")
 		{
@@ -98,15 +98,15 @@ class PlayState extends FlxState
 		}
 		if (entityName == "Enemigo2")
 		{
-			Reg.cajaEnemigos1 == new Enemigo2 (x, y);
+			Reg.enemigos2 == new Enemigo2 (x, y);
 		}
 		if (entityName == "Enemigo3")
 		{
-			Reg.cajaEnemigos1 == new Enemigo3 (x, y);
+			Reg.enemigos3 == new Enemigo3 (x, y);
 		}
 		if (entityName == "Boss")
 		{
-			Reg.cajaEnemigos1 == new Boss (x, y);
+			Reg.boss == new Boss (x, y);
 		}
 		
 	}
@@ -116,7 +116,6 @@ class PlayState extends FlxState
 		if (b == Reg.player)
 		{
 			Reg.player.kill();
-			dead = true;
 		}
 		else for (i in 0...Reg.disparoArray.length) 
 		{

@@ -28,6 +28,13 @@ class Reg
 	static public var disparoBoss:FlxSprite;
 	static public var playerVidas:Int = 3;
 	static public var cajaEnemigos1:FlxBasic;
+	static public var enemigos2:FlxSprite;
+	static public var enemigos3:FlxSprite;
+	static public var boss:FlxSprite;
 	static public var cajaBoss:FlxBasic;
 	static public var scroll:FlxSprite;
+	static public var option:FlxSprite;
+	static public var movementBool:Bool = false;
+	static public var movementBool2:Bool = false;
+	static public var dead:Bool = false;
 }

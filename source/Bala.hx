@@ -24,8 +24,12 @@ class Bala extends FlxSprite
 		if (x + width > FlxG.camera.scroll.x + FlxG.width)
 		{
 			kill();
-			Reg.DisparosVivos -= 1;
 		}
 		FlxG.collide(Reg.tilemap, this);
+	}
+	override public function kill():Void 
+	{
+		super.kill();
+		Reg.DisparosVivos -= 1;
 	}
 }
